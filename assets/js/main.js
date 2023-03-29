@@ -51,7 +51,14 @@ const { createApp } = Vue
                 return ('active');
             }
         },
-        
+        autoImg() {
+            setInterval(() => {
+                this.nextImages()
+            }, 3000);
+        }
+    },
+    created() {
+        this.autoImg()
     }
     
   }).mount('#app')
