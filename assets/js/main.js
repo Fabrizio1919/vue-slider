@@ -28,5 +28,30 @@ const { createApp } = Vue
             }
         ]
       }
+    },
+    methods: {
+        nextImages() {
+            console.log('next');
+            this.activeImage++
+            if (this.activeImage === this.images.length){
+                this.activeImage = 0
+            }
+        },
+        prevImages() {
+            console.log('prev');
+            this.activeImage--
+            if (this.activeImage < 0) {
+                this.activeImage = this.images.length - 1
+            }
+        },
+        selectImage(index) { this.activeImage = index },
+
+        activeVerify(index) {
+            if (index === this.activeImage) {
+                return ('active');
+            }
+        },
+        
     }
+    
   }).mount('#app')

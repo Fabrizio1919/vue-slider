@@ -18,19 +18,25 @@
     <div id="app">
         <div class="container">
             <div class="card">
-                <img :src="images[activeImage].image" alt="Spiderman">
+                <div class="activeImg">
+                    <img :src="images[activeImage].image" alt="Spiderman">
+                </div>
                
                 <nav class="navigator d-flex justify-content-between">
-                    <button class="prev btn">
+                    <button class="prev btn"@click="prevImages">
                         <i class="fas fa-chevron-left fa-sm fa-fw"></i>
                     </button>
                     <!-- /.prev -->
-                    <button class="next btn">
+                    <button class="next btn" @click="nextImages">
                         <i class="fas fa-chevron-right fa-sm fa-fw"></i>
 
                     </button>
                     <!-- /.next -->
                 </nav>
+
+                <div class="thumb" :class="activeVerify(index)">
+                    <img :src="image.image" alt="" v-for="(image,index) in images" @click="selectImage(index)">
+                </div>
 
                <!--  <div class="thumbs">
                      <img class="active" src="./assets/img/01.webp" alt="">
@@ -41,7 +47,7 @@
                 </div> -->
 
 
-                <div class="details">
+                <div class="details card-body">
                     <h3>Titolo: {{images[activeImage].title}}</h3>
                     <p>Descrizione: {{images[activeImage].text}}</p>
                 </div>
