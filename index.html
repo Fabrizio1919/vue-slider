@@ -17,7 +17,7 @@
 <body>
     <div id="app">
         <div class="container">
-            <div class="card">
+            <div class="card" @mouseover="stopImg"@mouseleave="autoImg">
                 <div class="activeImg">
                     <img :src="images[activeImage].image" alt="Spiderman">
                 </div>
